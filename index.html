@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070911">
+<meta name="description" content="Aviator Signals by Spribe — plans, signal information, and WhatsApp subscription contact.">
+<title>Aviator Signals by Spribe</title>
+<style>
+:root{--bg:#050810;--panel:#080d18;--red:#ff1744;--red2:#c90035;--text:#f7f8fb;--muted:#c6d0df;--green:#00b94f;--green2:#008d3b;--line:rgba(255,23,68,.55)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(5,8,16,.94);backdrop-filter:blur(14px);border-bottom:1px solid #27202b}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:10px;font-size:clamp(20px,3vw,32px);font-weight:900;font-style:italic;letter-spacing:-1.2px;white-space:nowrap}
+.brand .plane{color:var(--red);font-size:34px;transform:rotate(-18deg)}
+.brand em{color:var(--red);font-style:italic}
+.brand small{display:block;font-size:12px;letter-spacing:0;text-align:right;margin-top:-6px;color:#fff}
+nav{display:flex;gap:28px;align-items:center;font-size:14px;color:#e4e9f2}
+nav a:hover{color:var(--red)}
+.nav-cta{color:var(--red);font-weight:800;line-height:1.2}
+.hero{position:relative;overflow:hidden;padding:70px 0 62px;background:radial-gradient(ellipse at 80% 35%,rgba(132,0,36,.25),transparent 42%),linear-gradient(115deg,#050810,#070a13 60%,#0b0710)}
+.hero:before,.hero:after{content:"";position:absolute;width:220px;height:8px;background:var(--red);opacity:.7;transform:rotate(-45deg);box-shadow:0 14px 0 rgba(255,23,68,.28),0 28px 0 rgba(255,23,68,.13)}
+.hero:before{top:10px;left:-80px}.hero:after{bottom:20px;right:-70px}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:42px;position:relative;z-index:1}
+h1{font-size:clamp(38px,5.2vw,62px);line-height:1.03;letter-spacing:-2px;margin:0 0 18px;font-weight:900}
+.red{color:var(--red)}
+.lead{font-size:20px;font-weight:700;margin:0 0 14px}
+.sublead{color:var(--muted);max-width:470px;margin:0 0 28px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.feature{text-align:center;font-size:13px;font-weight:650}
+.feature-icon{width:52px;height:52px;border:1px solid var(--red);box-shadow:0 0 20px rgba(255,23,68,.16);border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;color:var(--red);font-size:23px}
+.game-preview{display:grid;grid-template-columns:1fr 1fr;gap:14px;transform:perspective(1000px) rotateY(-3deg)}
+.game{min-width:0;border:1px solid var(--red);border-radius:15px;padding:10px;background:linear-gradient(160deg,#111725,#03060c 65%);box-shadow:0 0 26px rgba(255,23,68,.13);font-size:10px;overflow:hidden}
+.game-head{display:flex;justify-content:space-between;color:var(--red);font-style:italic;font-weight:900;font-size:13px;margin-bottom:8px}
+.game-head b{color:#63ff72;font-size:10px}
+.mini-table{background:#101724;border-radius:7px;padding:8px;margin:7px 0;color:#c8d7f5;display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.mult{color:#00d6ff}.mult:nth-child(3n){color:#e450ff}
+.graph{height:66px;border-radius:8px;background:linear-gradient(150deg,transparent 50%,rgba(255,23,68,.5) 51%,transparent 53%),linear-gradient(170deg,#060a12,#190513);border-bottom:1px solid #451124;margin:8px 0;display:grid;place-items:center;font-size:25px;font-weight:900}
+.bet-row{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:6px;background:#101724;border-radius:8px;margin:6px 0}
+.bet{background:#00b83f;color:white;border-radius:7px;padding:9px 12px;font-weight:900;text-align:center;flex:1}
+.listline{height:17px;border-radius:5px;background:#0e1420;margin:5px 0;padding:3px 6px;color:#aebbd0;display:flex;justify-content:space-between}
+section{scroll-margin-top:80px}
+.plans{padding:18px 0 40px;background:linear-gradient(#070b14,#050810);border-bottom:1px solid #24232d}
+.section-title{text-align:center;font-size:clamp(32px,4vw,44px);font-weight:900;letter-spacing:-1px;margin:0}
+.section-sub{text-align:center;color:var(--muted);margin:0 auto 34px;max-width:680px}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{border:1px solid var(--line);border-radius:15px;padding:22px;background:linear-gradient(145deg,rgba(12,17,29,.98),rgba(4,7,13,.98));position:relative}
+.plan.popular{border:2px solid var(--red);box-shadow:0 0 22px rgba(255,23,68,.32)}
+.popular-tag{position:absolute;right:-2px;top:-12px;background:var(--red);border-radius:9px;padding:5px 12px;font-size:10px;font-weight:900}
+.plan-top{display:flex;align-items:center;gap:13px}
+.plan-plane{font-size:38px;color:var(--red);transform:rotate(-20deg)}
+.plan h3{margin:0;font-size:20px}.plan small{color:var(--muted)}
+.price{font-size:30px;font-weight:900;margin:12px 0}
+.plan ul{list-style:none;padding:0;margin:0 0 20px;color:#d9e1ed;font-size:14px}
+.plan li{margin:6px 0}.plan li:before{content:"✓";color:var(--red);font-weight:900;font-size:20px;margin-right:10px}
+.whatsapp{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:12px 14px;border-radius:12px;background:linear-gradient(#00c853,#00963d);border:1px solid #28ff8c;color:#fff;font-weight:850;box-shadow:0 5px 18px rgba(0,200,83,.12);transition:transform .2s,filter .2s}
+.whatsapp:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.wa-icon{display:grid;place-items:center;border:2px solid white;border-radius:50%;width:29px;height:29px;font-size:18px;flex-shrink:0}
+.about{padding:34px 0 44px;background:radial-gradient(ellipse at 80% 80%,rgba(130,0,34,.2),transparent 38%),#060a12}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.about h2{font-size:25px;line-height:1.2;margin:0 0 12px}
+.about p{color:var(--muted);font-size:14px;max-width:510px}
+.stats{display:flex;gap:24px;flex-wrap:wrap;margin-top:22px}
+.stat{color:var(--red);font-size:14px;font-weight:900}.stat span{display:block;color:#cbd5e1;font-size:11px;font-weight:500}
+.about-art{min-height:210px;display:flex;align-items:center;justify-content:center;gap:18px;position:relative}
+.phone{width:42%;max-width:190px;min-height:190px;border:1px solid var(--red);border-radius:14px;padding:12px;background:linear-gradient(160deg,#182033,#05070d);box-shadow:0 0 20px #320718;transform:rotate(-5deg)}
+.phone:nth-child(2){transform:rotate(5deg);margin-top:35px}
+.phone .graph{height:70px;font-size:18px}
+.phone .mini-table{grid-template-columns:repeat(3,1fr);font-size:8px}
+footer{padding:22px 0 15px;border-top:1px solid #39202b;background:#050810}
+.footer-top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:22px;color:#cbd5e1;font-size:12px}
+.footer-note{text-align:center;color:#aab5c6;font-size:12px;margin-top:20px}
+.disclaimer{font-size:11px;color:#8793a7;text-align:center;margin:8px auto 0;max-width:800px}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:32px}.hero-copy{text-align:center}.sublead{margin-left:auto;margin-right:auto}.game-preview{max-width:620px;margin:auto;width:100%}.features{max-width:580px;margin:28px auto 0}.about-grid{grid-template-columns:1fr}.about-art{max-width:560px;width:100%;margin:auto}}
+@media(max-width:650px){.nav{padding:12px 0;align-items:flex-start;flex-direction:column;gap:12px}.nav-row{display:flex;justify-content:space-between;align-items:center;width:100%}nav{gap:15px;flex-wrap:wrap;font-size:12px}.nav-cta{display:none}.hero{padding:48px 0 42px}.game-preview{gap:8px}.game{padding:7px}.mini-table{gap:4px;padding:6px}.plan-grid{grid-template-columns:1fr;max-width:420px;margin:auto}.plans{padding-top:28px}.section-sub{font-size:14px}.plan{padding:20px}.features{grid-template-columns:repeat(2,1fr);row-gap:20px}.footer-top{justify-content:center;text-align:center}.footer-links{justify-content:center;flex-wrap:wrap}.about-art{min-height:180px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="nav-row">
+      <a class="brand" href="#home" aria-label="Aviator Signals home"><span class="plane">✈</span><span>Aviator <em>Signals</em><small>by Spribe</small></span></a>
+      <a class="nav-cta" href="#plans">Play Smarter<br><span style="color:#fff">Win Bigger</span>　✈</a>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#how">How It Works</a><a href="#plans">Plans</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>Aviator Signals<br><span class="red">by Spribe</span></h1>
+      <p class="lead">Positive Outcomes. Smart Signals. Fast Updates.</p>
+      <p class="lead red" style="font-size:22px">Get Your Bot Today!</p>
+      <p class="sublead">Unlock premium Aviator signals and take your betting experience to the next level. Choose your Daily, Weekly, or Monthly Plan and subscribe today through WhatsApp.</p>
+      <div class="features">
+        <div class="feature"><div class="feature-icon">ϟ</div>Real-Time<br>Signals</div>
+        <div class="feature"><div class="feature-icon">♢</div>Trusted<br>&amp; Reliable</div>
+        <div class="feature"><div class="feature-icon">▥</div>Better<br>Decisions</div>
+        <div class="feature"><div class="feature-icon">◉</div>24/7<br>Support</div>
+      </div>
+    </div>
+    <div class="game-preview" aria-label="Decorative Aviator-style interface illustration">
+      <div class="game">
+        <div class="game-head"><span>Aviator</span><b>KSh 53.66</b></div>
+        <div style="font-size:9px">◉ ROUND HISTORY</div>
+        <div class="mini-table"><span class="mult">1.46x</span><span>5.95x</span><span class="mult">1.68x</span><span>2.08x</span><span>5.22x</span><span>1.56x</span><span>1.30x</span><span>1.80x</span><span>1.90x</span><span>1.68x</span><span>3.00x</span><span>1.30x</span></div>
+        <div class="graph">↗</div>
+        <div class="bet-row"><span>−　20.00　+</span><span class="bet">BET<br>KSh 20.00</span></div>
+        <div class="listline"><span>Auto Bet</span><span>Auto Cash Out</span></div>
+        <div style="font-weight:800;margin-top:10px">ALL BETS <span style="float:right">Bet, KSh</span></div>
+        <div class="listline"><span>🟢 player•••</span><span>500.00</span></div><div class="listline"><span>🟢 player•••</span><span>500.00</span></div><div class="listline"><span>🟢 player•••</span><span>500.00</span></div>
+      </div>
+      <div class="game">
+        <div class="game-head"><span>Aviator</span><b>KSh 108,950</b></div>
+        <div class="mini-table"><span class="mult">1.15x</span><span>1.83x</span><span>1.62x</span><span>2.79x</span><span>1.68x</span><span>7.70x</span><span>13.99x</span></div>
+        <div class="graph" style="height:105px;font-size:29px">1,390.75x</div>
+        <div class="bet-row"><span>260　−　+</span><span class="bet">Bet<br>260 KES</span></div>
+        <div class="listline"><span>Auto Bet</span><span>Automatic</span></div>
+        <div class="bet-row"><span>Cancel</span><span style="color:var(--red)">Waiting for the next round</span></div>
+        <div class="listline"><span>player•••</span><span>500.00</span></div><div class="listline"><span>player•••</span><span>500.00</span></div><div class="listline"><span>player•••</span><span>500.00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="plans" id="plans">
+  <div class="container">
+    <h2 class="section-title">Our <span class="red">Plans</span></h2>
+    <p class="section-sub">Choose a plan that fits your goals and contact us on WhatsApp to get started.</p>
+    <div class="plan-grid">
+      <article class="plan">
+        <div class="plan-top"><span class="plan-plane">✈</span><div><h3>Daily Plan</h3><small>1 Day Access</small></div></div>
+        <div class="price">KSh 2,000</div>
+        <ul><li>Aviator signal updates</li><li>Real-time updates</li><li>Support when available</li><li>Easy access</li></ul>
+        <a class="whatsapp" target="_blank" rel="noopener noreferrer" href="https://wa.me/254781034055?text=Hello%2C%20I%20would%20like%20to%20subscribe%20to%20the%20Daily%20Aviator%20Signals%20Plan%20for%20KSh%202%2C000."><span class="wa-icon">◔</span>Contact on WhatsApp <span>›</span></a>
+      </article>
+      <article class="plan popular">
+        <span class="popular-tag">MOST POPULAR</span>
+        <div class="plan-top"><span class="plan-plane">✈</span><div><h3>Weekly Plan</h3><small>7 Days Access</small></div></div>
+        <div class="price">KSh 5,000</div>
+        <ul><li>Aviator signal updates</li><li>Real-time updates</li><li>Support when available</li><li>Easy access</li></ul>
+        <a class="whatsapp" target="_blank" rel="noopener noreferrer" href="https://wa.me/254781034055?text=Hello%2C%20I%20would%20like%20to%20subscribe%20to%20the%20Weekly%20Aviator%20Signals%20Plan%20for%20KSh%205%2C000."><span class="wa-icon">◔</span>Contact on WhatsApp <span>›</span></a>
+      </article>
+      <article class="plan">
+        <div class="plan-top"><span class="plan-plane">✈</span><div><h3>Monthly Plan</h3><small>30 Days Access</small></div></div>
+        <div class="price">KSh 16,000</div>
+        <ul><li>Aviator signal updates</li><li>Real-time updates</li><li>Support when available</li><li>Easy access</li></ul>
+        <a class="whatsapp" target="_blank" rel="noopener noreferrer" href="https://wa.me/254781034055?text=Hello%2C%20I%20would%20like%20to%20subscribe%20to%20the%20Monthly%20Aviator%20Signals%20Plan%20for%20KSh%2016%2C000."><span class="wa-icon">◔</span>Contact on WhatsApp <span>›</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div>
+      <h2>About Aviator Signals<br><span class="red">by Spribe</span></h2>
+      <p>We share Aviator-related signal updates and information to help users make more informed decisions. Our goal is to make information easy to access and provide a direct way to contact support.</p>
+      <div class="stats"><div class="stat">◇ Clear Info<span>Plan details upfront</span></div><div class="stat">◷ Support<span>WhatsApp contact</span></div><div class="stat">↗ Updates<span>Signal information</span></div></div>
+    </div>
+    <div class="about-art" id="how" aria-label="Decorative signal interface artwork">
+      <div class="phone"><div class="game-head"><span>Aviator</span><b>LIVE</b></div><div class="graph">1,390.75x</div><div class="mini-table"><span>1.46x</span><span>5.95x</span><span>1.68x</span><span>2.08x</span><span>5.22x</span><span>1.56x</span></div><div class="bet-row"><span class="bet">BET</span></div></div>
+      <div class="phone"><div class="game-head"><span>Aviator</span><b>INFO</b></div><div class="mini-table"><span>1.15x</span><span>1.83x</span><span>2.79x</span><span>1.68x</span><span>7.70x</span><span>13.9x</span></div><div class="graph">↗</div><div class="bet-row"><span class="bet">UPDATE</span></div></div>
+    </div>
+  </div>
+</section>
+<section class="about" id="contact" style="padding-top:0">
+  <div class="container" style="text-align:center">
+    <h2><span class="red">Get Your Bot Today!</span></h2>
+    <p style="color:var(--muted)">Tap below to chat with us on WhatsApp about plans and access.</p>
+    <a class="whatsapp" style="max-width:330px;margin:18px auto 0" target="_blank" rel="noopener noreferrer" href="https://wa.me/254781034055?text=Hello%2C%20I%20would%20like%20more%20information%20about%20Aviator%20Signals."><span class="wa-icon">◔</span>Chat with us on WhatsApp <span>›</span></a>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a class="brand" href="#home"><span class="plane">✈</span><span style="font-size:22px">Aviator <em>Signals</em><small>by Spribe</small></span></a>
+      <div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#how">How It Works</a><a href="#plans">Plans</a><a href="#contact">Contact</a></div>
+      <div style="color:#dce4f0;font-size:12px"><span class="red">♢</span> Play Smart. Win Big.</div>
+    </div>
+    <p class="footer-note">© 2026 Aviator Signals. All rights reserved.</p>
+    <p class="disclaimer">Positive Outcomes. Smart Signals. Fast Updates. Get your Aviator Bot today! Independent Aviator signals and subscription service. Play responsibly.</p>
+  </div>
+</footer>
+</body>
+</html>
